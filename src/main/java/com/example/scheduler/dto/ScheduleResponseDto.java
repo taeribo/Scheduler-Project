@@ -19,8 +19,8 @@ public class ScheduleResponseDto {
                                String author, LocalDateTime createdAt, LocalDateTime modifiedAt){
         this.id = id;
         this.title = title;
-        this.author = author;
         this.content = content;
+        this.author = author;
         this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
     }

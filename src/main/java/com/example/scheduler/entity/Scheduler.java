@@ -38,8 +38,15 @@ public class Scheduler {
     @LastModifiedDate
     private LocalDateTime modifiedAt;
 
-    public void updateSchedule(String title, String author) {
+
+    public Scheduler (String title, String content, String author, String password){
         this.title = title;
+        this.content = content;
+        this.author = author;
+        this.password = password;
+    }
+    public void updateSchedule(String title, String author) {
+       this.title = title;
         this.author = author;
     }
 }
