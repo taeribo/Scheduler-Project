@@ -1,19 +1,24 @@
 package com.example.scheduler.dto;
-//보내는 데이터
 
-import lombok.AllArgsConstructor;
+
+
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
+
+@Getter
 public class ScheduleRequestDto {
+    private final String title;
+    private final String content;
+    private final String author;
+    private final String password;
 
-    @Getter
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public class ScheduleRequestDro{
-        private String title;
-        private String content;
-        private String author;
-        private String password;
+
+
+
+    public ScheduleRequestDto(String title, String content, String author, String password){
+       this.title = title;
+       this.content = content;
+       this.author = author;
+       this.password = password;
     }
-}
+    }
