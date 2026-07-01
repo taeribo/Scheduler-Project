@@ -91,7 +91,7 @@ public class SchedulerService {
 
 
     @Transactional
-    public ScheduleResponseDto updates(Long id, ScheduleRequestDto requestDto) {
+    public ScheduleResponseDto update(Long id, ScheduleRequestDto requestDto) {
         Scheduler scheduler = getOrThrow(id);
         if (!scheduler.getPassword().equals(requestDto.getPassword())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN, "비밀번호가 일치하지 않습니다.");
@@ -120,8 +120,11 @@ public class SchedulerService {
 
 
     @Transactional
-    public void delete(Long id) {
+    public void delete(Long id, ScheduleRequestDto requestDto) {
         Scheduler scheduler = getOrThrow(id);
+        if (!scheduler.getPassword().equals(requestDto.getPassword())) {
+            throw new ResponseStatusException(HttpStatus.FORBIDDEN, "비밀번호가 일치하지 않습니다.");
+        }
         schedulerRepository.delete(scheduler);
     }
 
